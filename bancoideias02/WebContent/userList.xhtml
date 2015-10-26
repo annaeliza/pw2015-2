@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/template/padrao.xhtml">
+	<ui:define name="conteudo">
+		<h1>Usuarios</h1>
+		<h:form>
+			<h:dataTable value="#{userMB.users}" var="users">
+				<h:column>
+					<f:facet name="header">ID:</f:facet>
+					<h:outputText value="#{userMB.user.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nome:</f:facet>
+					<h:outputText value="#{userMB.user.nome}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">E-Mail:</f:facet>
+					<h:outputText value="#{userMB.user.email}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header"></f:facet>
+					<h:commandLink value="Editar" action="#{userMB.editar(user.id)}" />
+					
+					<h:commandLink value="X" action="#{userMB.excluir(user.id)}"
+					 onclick="return confirm('Tem certeza que deseja excluir usuário &#34;#{user.nome}&#34;?')" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+		<ui:include src="/WEB-INF/modulos/login.xhtml"/>
+	</ui:define>
+</ui:composition>
+</html>

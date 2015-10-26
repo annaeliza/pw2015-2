@@ -5,8 +5,14 @@ public class User {
 	private Long id;
 	private String nome;
 	private String email;
+	private String senha;
 	
-	
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -25,5 +31,5 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	
 }
